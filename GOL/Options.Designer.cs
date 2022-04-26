@@ -48,6 +48,7 @@ namespace GOL
             this.label1.Size = new System.Drawing.Size(137, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Time Interval in Miliseconds";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -73,6 +74,7 @@ namespace GOL
             this.numericUpDownMili.Name = "numericUpDownMili";
             this.numericUpDownMili.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownMili.TabIndex = 3;
+            this.numericUpDownMili.ValueChanged += new System.EventHandler(this.numericUpDownMili_ValueChanged);
             // 
             // numericUpDownWidCells
             // 

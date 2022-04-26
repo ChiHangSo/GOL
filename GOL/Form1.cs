@@ -1,4 +1,5 @@
-﻿using System;
+﻿//#define Mark
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,10 +10,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
+
 namespace GOL
 {
+
     public partial class Form1 : Form
     {
+       
         // The universe array
         bool[,] universe = new bool[10, 10];
 
@@ -159,6 +163,7 @@ namespace GOL
         {
             NextGeneration();
         }
+        #if Mark
 
         private void graphicsPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -247,7 +252,7 @@ namespace GOL
                 graphicsPanel1.Invalidate();
             }
         }
-
+#endif
         private int CountNeighborsFinite(int x, int y)
         {
             int count = 0;
@@ -342,12 +347,20 @@ namespace GOL
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             timer.Enabled = true;
+
+            //When button one is disabled, button two is enabled
+            toolStripButton1.Enabled = false;
+            toolStripButton2.Enabled = true;
         }
 
         //Pause button
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             timer.Enabled = false;
+
+            //When button two is disabled, button one is enabled.
+            toolStripButton1.Enabled = true;
+            toolStripButton2.Enabled = false;
         }
 
         //Next generation button
@@ -365,6 +378,7 @@ namespace GOL
                 //Iterate through the universe in the x, left to right
                 for (int x = 0; x < universe.GetLength(0); x++)
                 {
+                    // Setting everything to false
                     universe[x, y] = false;
                     scratchPad[x, y] = false; 
                 }
@@ -406,9 +420,23 @@ namespace GOL
 
         }
 
+        // Making a new universe
         private void newToolStripButton_Click(object sender, EventArgs e)
         {
+            //Iterate through the universe in the y, top to bottom
+            for (int y = 0; y < universe.GetLength(1); y++)
+            {
+                //Iterate through the universe in the x, left to right
+                for (int x = 0; x < universe.GetLength(0); x++)
+                {
+                    // Setting everything to false
+                    universe[x, y] = false;
+                    scratchPad[x, y] = false;
+                }
+            }
 
+            //This is to recolor the universe
+            graphicsPanel1.Invalidate();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -481,7 +509,7 @@ namespace GOL
                 graphicsPanel1.BackColor = dlg.Color;
             }
 
-            
+            graphicsPanel1.Invalidate();
         }
 
         private void cellColorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -499,6 +527,7 @@ namespace GOL
                 //This will set the back color to whatever color the user chose
                 cellColor = dlg.Color;
             }
+            graphicsPanel1.Invalidate();
         }
 
         private void gridColorToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -516,6 +545,7 @@ namespace GOL
                 //This will set the back color to whatever color the user chose
                 gridColor = dlg.Color;
             }
+            graphicsPanel1.Invalidate();
         }
 
         private void gridX10ColorToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -524,6 +554,7 @@ namespace GOL
             //Creating a new color dialog
             ColorDialog dlg = new ColorDialog();
             dlg.ShowDialog();
+            graphicsPanel1.Invalidate();
         }
 
         private void customizeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -541,6 +572,11 @@ namespace GOL
                 //This will set the back color to whatever color the user chose
                 graphicsPanel1.BackColor = dlg.Color;
             }
+
+            graphicsPanel1.Invalidate();
+            Properties.Settings.Default.PanelColor = graphicsPanel1.BackColor;
+
+            Properties.Settings.Default.Save();
         }
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -558,6 +594,7 @@ namespace GOL
                 //This will set the back color to whatever color the user chose
                 cellColor = dlg.Color;
             }
+            graphicsPanel1.Invalidate();
         }
 
         private void gridColorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -575,6 +612,7 @@ namespace GOL
                 //This will set the back color to whatever color the user chose
                 gridColor = dlg.Color;
             }
+            graphicsPanel1.Invalidate();
         }
 
         private void gridX10ColorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -583,6 +621,7 @@ namespace GOL
             //Creating a new color dialog
             ColorDialog dlg = new ColorDialog();
             dlg.ShowDialog();
+            graphicsPanel1.Invalidate();
         }
 
         //When the form is closed, this is so that the background color is saved
@@ -599,16 +638,18 @@ namespace GOL
         
         private void resetToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Reset();
-
             //Read settings
             graphicsPanel1.BackColor = Properties.Settings.Default.PanelColor;
             cellColor = Properties.Settings.Default.CellColor;
             gridColor = Properties.Settings.Default.GridColor;
+
+            Properties.Settings.Default.Reset();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-       
+            graphicsPanel1.BackColor = Properties.Settings.Default.PanelColor;
+            cellColor = Properties.Settings.Default.CellColor;
+            gridColor = Properties.Settings.Default.GridColor;
         }
 
         // SECOND GRAPHICS PANEL
@@ -722,6 +763,11 @@ namespace GOL
                 // Tell Windows you need to repaint
                 graphicsPanel1.Invalidate();
             }
+        }
+
+        private void toolsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

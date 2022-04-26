@@ -16,5 +16,15 @@ namespace GOL
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDownMili_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
