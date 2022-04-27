@@ -28,6 +28,9 @@ namespace GOL
 
             //Setting the minimun value
             numericUpDown1.Minimum = int.MinValue;
+
+            // Setting up the last default seed
+            numericUpDown1.Value = Properties.Settings.Default.Seed;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,7 +43,7 @@ namespace GOL
             Mnum = ran.Next(int.MinValue, int.MaxValue);
 
             //Setting the value to the numeric up down
-            numericUpDown1.Value = num;
+            numericUpDown1.Value = Mnum;
 
         }
 
