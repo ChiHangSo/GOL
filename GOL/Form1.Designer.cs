@@ -217,7 +217,6 @@ namespace GOL
             this.View.Name = "View";
             this.View.Size = new System.Drawing.Size(44, 20);
             this.View.Text = "View";
-            this.View.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // hUDToolStripMenuItem
             // 
@@ -276,7 +275,6 @@ namespace GOL
             this.randomizeToolStripMenuItem.Name = "randomizeToolStripMenuItem";
             this.randomizeToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
             this.randomizeToolStripMenuItem.Text = "Randomize";
-            this.randomizeToolStripMenuItem.Click += new System.EventHandler(this.randomizeToolStripMenuItem_Click);
             // 
             // toolStripMenuItemSeed
             // 
@@ -516,21 +514,18 @@ namespace GOL
             this.statusStrip1.Size = new System.Drawing.Size(573, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
-            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
             // 
             // toolStripStatusLabelGenerations
             // 
             this.toolStripStatusLabelGenerations.Name = "toolStripStatusLabelGenerations";
             this.toolStripStatusLabelGenerations.Size = new System.Drawing.Size(82, 17);
             this.toolStripStatusLabelGenerations.Text = "Generations: 0";
-            this.toolStripStatusLabelGenerations.Click += new System.EventHandler(this.toolStripStatusLabelGenerations_Click);
             // 
             // toolStripStatusLabelInterval
             // 
             this.toolStripStatusLabelInterval.Name = "toolStripStatusLabelInterval";
             this.toolStripStatusLabelInterval.Size = new System.Drawing.Size(63, 17);
             this.toolStripStatusLabelInterval.Text = "Intervals: 0";
-            this.toolStripStatusLabelInterval.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
             // 
             // toolStripStatusLabelAlive
             // 

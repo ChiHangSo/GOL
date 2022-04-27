@@ -12,31 +12,32 @@ namespace GOL
 {
     public partial class Options : Form
     {
-        public int ninterval;
-        public int xUniverse;
-        public int yUniverse;
-        public int interval
-        {
-            get { return ninterval; }
-            set { interval = ninterval; }
-        }
         public Options()
         {
             InitializeComponent();
-            ninterval = Properties.Settings.Default.Interval;
-            //xUniverse = Properties.Settings.Default.UniverseX;
-            //yUniverse = Properties.Settings.Default.UniverseY;
+
+            // Write out the default values to the user
+            numericUpDownMili.Value = Properties.Settings.Default.Interval;
+            numericUpDownWidCells.Value = Properties.Settings.Default.CellsX;
+            numericUpDownHeiCells.Value = Properties.Settings.Default.CellsY;
         }
         // Numeric value in intervals
         private void numericUpDownMili_ValueChanged(object sender, EventArgs e)
         {
 
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void numericUpDownWidCells_ValueChanged(object sender, EventArgs e)
         {
-
         }
 
+        private void OkButton_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Interval = (int)numericUpDownMili.Value;
+            Properties.Settings.Default.CellsX = (int)numericUpDownWidCells.Value;
+            Properties.Settings.Default.CellsY = (int)numericUpDownHeiCells.Value;
+
+            // Saving the properties
+            Properties.Settings.Default.Save();
+        }
     }
 }

@@ -93,5 +93,29 @@ namespace GOL.Properties {
                 this["Interval"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public int CellsX {
+            get {
+                return ((int)(this["CellsX"]));
+            }
+            set {
+                this["CellsX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public int CellsY {
+            get {
+                return ((int)(this["CellsY"]));
+            }
+            set {
+                this["CellsY"] = value;
+            }
+        }
     }
 }

@@ -35,6 +35,8 @@ namespace GOL
             this.numericUpDownMili = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownWidCells = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownHeiCells = new System.Windows.Forms.NumericUpDown();
+            this.OkButton = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMili)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWidCells)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeiCells)).BeginInit();
@@ -48,7 +50,6 @@ namespace GOL
             this.label1.Size = new System.Drawing.Size(137, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Time Interval in Miliseconds";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -71,30 +72,101 @@ namespace GOL
             // numericUpDownMili
             // 
             this.numericUpDownMili.Location = new System.Drawing.Point(234, 47);
+            this.numericUpDownMili.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownMili.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownMili.Name = "numericUpDownMili";
             this.numericUpDownMili.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownMili.TabIndex = 3;
+            this.numericUpDownMili.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownMili.ValueChanged += new System.EventHandler(this.numericUpDownMili_ValueChanged);
             // 
             // numericUpDownWidCells
             // 
             this.numericUpDownWidCells.Location = new System.Drawing.Point(234, 84);
+            this.numericUpDownWidCells.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDownWidCells.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.numericUpDownWidCells.Name = "numericUpDownWidCells";
             this.numericUpDownWidCells.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownWidCells.TabIndex = 4;
+            this.numericUpDownWidCells.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numericUpDownWidCells.ValueChanged += new System.EventHandler(this.numericUpDownWidCells_ValueChanged);
             // 
             // numericUpDownHeiCells
             // 
             this.numericUpDownHeiCells.Location = new System.Drawing.Point(234, 121);
+            this.numericUpDownHeiCells.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDownHeiCells.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.numericUpDownHeiCells.Name = "numericUpDownHeiCells";
             this.numericUpDownHeiCells.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownHeiCells.TabIndex = 5;
+            this.numericUpDownHeiCells.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // OkButton
+            // 
+            this.OkButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.OkButton.Location = new System.Drawing.Point(109, 161);
+            this.OkButton.Name = "OkButton";
+            this.OkButton.Size = new System.Drawing.Size(75, 23);
+            this.OkButton.TabIndex = 6;
+            this.OkButton.Text = "Ok";
+            this.OkButton.UseVisualStyleBackColor = true;
+            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
+            // 
+            // CancelButton
+            // 
+            this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CancelButton.Location = new System.Drawing.Point(234, 161);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelButton.TabIndex = 7;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = true;
             // 
             // Options
             // 
+            this.AcceptButton = this.OkButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.CancelButton;
             this.ClientSize = new System.Drawing.Size(439, 209);
+            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.OkButton);
             this.Controls.Add(this.numericUpDownHeiCells);
             this.Controls.Add(this.numericUpDownWidCells);
             this.Controls.Add(this.numericUpDownMili);
@@ -120,5 +192,7 @@ namespace GOL
         private System.Windows.Forms.NumericUpDown numericUpDownMili;
         private System.Windows.Forms.NumericUpDown numericUpDownWidCells;
         private System.Windows.Forms.NumericUpDown numericUpDownHeiCells;
+        private System.Windows.Forms.Button OkButton;
+        private System.Windows.Forms.Button CancelButton;
     }
 }
